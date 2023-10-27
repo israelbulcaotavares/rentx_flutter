@@ -25,14 +25,15 @@ class MyApp extends StatelessWidget {
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
-
   final String title;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
+
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,21 +51,31 @@ class _MyHomePageState extends State<MyHomePage> {
                 height: 12,
               ),
             ),
-            Text(widget.title, style: TextStyle(color: Colors.grey)),
+            Text(widget.title, style: const TextStyle(color: Colors.grey)),
           ],
         ),
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: [
-              CarsList(),
-              CarsList(),
-              CarsList(),
-            ],
+      body: ListView(
+        children: [
+          Container(
+            color: Color.fromRGBO(244, 245, 246, 1), //#F4F5F6
+            child: Center(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  children: [
+                    CarsList('AUDI','RS 5 Coupé','Gasolina', 'R\$90.000', 'assets/images/veiculos/audi.png'),
+                    CarsList('Corvette','Z06','Etanol', 'R\$500.000', 'assets/images/veiculos/corveteZ06.png'),
+                    CarsList('Lamborghini','Aventador','Etanol', 'R\$1500.000', 'assets/images/veiculos/lambo.png'),
+                    CarsList('Porche','Panamera','Etanol', 'R\$900.000', 'assets/images/veiculos/porche.png'),
+                    CarsList('Volvo','XC40','Etanol', 'R\$1500.000', 'assets/images/veiculos/volvo.png'),
+
+                  ],
+                ),
+              ),
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
